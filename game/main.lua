@@ -25,7 +25,7 @@ function love.update (dt)
   local x,y = love.mouse.getPosition()
   y = love.graphics.getHeight()-y
   local pos = struct.mul4(struct.tform, {x,y,0,1})
-  pos[3] = 32--+10*math.sin(5*t)
+  pos[3] = 32
   someplace:set_light_pos(pos)
   t = t+dt
 end
