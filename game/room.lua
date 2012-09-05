@@ -28,7 +28,7 @@ function offsets.floor (x,y,z)
 end
 
 function offsets.leftwall (x,y,z)
-  return -32*x+32*y, 32*y, -32*z-32*y, 0
+  return -32*x+32*y, 32*y, -32*z+32*y, 0
 end
 
 function offsets.rightwall (x,y,z)
