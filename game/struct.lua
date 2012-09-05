@@ -161,7 +161,7 @@ module "struct" do
     love.graphics.quad("fill",unpack(args))
   end
   
-  function draw_left_wall (effect, pos, size)
+  function draw_leftwall (effect, pos, size)
     local args = {}
     args[1], args[2] = to_screen(pos[1],          pos[2], pos[3]+size[2])
     args[3], args[4] = to_screen(pos[1]+size[1],  pos[2], pos[3]+size[2])
@@ -171,7 +171,7 @@ module "struct" do
     love.graphics.quad("fill",unpack(args))
   end
   
-  function draw_right_wall (effect, pos, size)
+  function draw_rightwall (effect, pos, size)
     local args = {}
     args[1], args[2] = to_screen(pos[1],  pos[2]+size[1], pos[3]+size[2])
     args[3], args[4] = to_screen(pos[1],  pos[2],         pos[3]+size[2])
