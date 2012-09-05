@@ -14,8 +14,8 @@ function love.load ()
   }
   someplace:add_floor({0,0,0}, {-3,-1,0}, {6,1}, floor)
   someplace:add_leftwall({0,0,0}, {-3,0,0}, {6,1})
-  someplace:add_floor({0,0,1}, {-3,0,1}, {6,3}, floor)
-  someplace:add_leftwall({0,-1,-2}, {-3,-1,-2}, {6,2})
+  someplace:add_floor({0,0,1}, {-3,0,0}, {6,3}, floor)
+  someplace:add_leftwall({0,-1,-2}, {-3,0,0}, {6,2})
   someplace:add_rightwall({0,0,0}, {0,-1,0}, {1,1}, door[1])
   someplace:add_rightwall({0,0,0}, {0,-1,1}, {1,1}, door[2])
 end

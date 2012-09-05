@@ -38,7 +38,7 @@ end
 function room:add_struct (struct_type, origin, pos, size, img)
   local struct = {
     effect = struct["new_"..struct_type](img),
-    pos = lux.object.clone(pos),
+    pos = {origin[1]+pos[1], origin[2]+pos[2], origin[3]+pos[3]},
     size = lux.object.clone(size)
   }
   struct.effect:send("offset", {offsets[struct_type](unpack(origin))})
