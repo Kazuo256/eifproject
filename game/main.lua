@@ -3,7 +3,6 @@ require "isospace"
 local struct  = require "struct"
 
 local floor, door
-local effects = {}
 local someplace = isospace:new{}
 
 function love.load ()

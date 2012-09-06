@@ -45,16 +45,16 @@ function isospace:add_struct (struct_type, origin, pos, size, img)
   self[typenames[struct_type]]:insert(struct)
 end
 
-function isospace:add_floor (pos, origin, size, img)
-  self:add_struct("floor", pos, origin, size, img)
+function isospace:add_floor (origin, pos, size, img)
+  self:add_struct("floor", origin, pos, size, img)
 end
 
-function isospace:add_leftwall (pos, origin, size, img)
-  self:add_struct("leftwall", pos, origin, size, img)
+function isospace:add_leftwall (origin, pos, size, img)
+  self:add_struct("leftwall", origin, pos, size, img)
 end
 
-function isospace:add_rightwall (pos, origin, size, img)
-  self:add_struct("rightwall", pos, origin, size, img)
+function isospace:add_rightwall (origin, pos, size, img)
+  self:add_struct("rightwall", origin, pos, size, img)
 end
 
 function isospace:set_light_pos(pos)
