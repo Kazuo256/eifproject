@@ -46,15 +46,15 @@ function layer:add_struct (struct_type, origin, pos, size, img)
 end
 
 function layer:add_floor (origin, pos, size, img)
-  self:add_struct("floor", origin, pos, size, img)
+  self:add_struct("floor", {0,0,origin}, pos, size, img)
 end
 
 function layer:add_leftwall (origin, pos, size, img)
-  self:add_struct("leftwall", origin, pos, size, img)
+  self:add_struct("leftwall", {0,origin,0}, pos, size, img)
 end
 
 function layer:add_rightwall (origin, pos, size, img)
-  self:add_struct("rightwall", origin, pos, size, img)
+  self:add_struct("rightwall", {origin,0,0}, pos, size, img)
 end
 
 function layer:set_light_pos(pos)
