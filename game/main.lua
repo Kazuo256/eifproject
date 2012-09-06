@@ -7,7 +7,7 @@ local layer = iso.layer
 
 local floor, door
 local someplace = space:new {}
-local somelayer = layer:new {}
+local layer1, layer2 = layer:new {}, layer:new {}
 
 function love.load ()
   floor = love.graphics.newImage "tiles_plain_3.png"
@@ -15,13 +15,14 @@ function love.load ()
     love.graphics.newImage "door_0124_bottom.png",
     love.graphics.newImage "door_0124_top.png"
   }
-  somelayer:add_floor(0, {-3,0,0}, {6,1}, floor)
-  somelayer:add_leftwall(0, {-3,0,0}, {6,1})
-  somelayer:add_floor(1, {-3,-3,0}, {6,3}, floor)
-  somelayer:add_leftwall(1, {-3,0,-2}, {6,2})
-  somelayer:add_rightwall(0, {0,0,0}, {1,1}, door[1])
-  somelayer:add_rightwall(0, {0,0,1}, {1,1}, door[2])
-  someplace:add_layer(somelayer)
+  layer1:add_floor(0, {-3,0,0}, {6,1}, floor)
+  layer1:add_leftwall(0, {-3,0,0}, {6,1})
+  layer1:add_floor(1, {-3,-3,0}, {6,3}, floor)
+  layer1:add_leftwall(1, {-3,0,-2}, {6,2})
+  layer2:add_rightwall(0, {0,0,0}, {1,1}, door[1])
+  layer2:add_rightwall(0, {0,0,1}, {1,1}, door[2])
+  someplace:add_layer({left=-128,right=128,bottom=-128,top=128},layer1)
+  someplace:add_layer({left=0,right=128,bottom=0,top=128},layer2)
 end
 
 local t = 0
