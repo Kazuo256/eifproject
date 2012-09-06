@@ -24,15 +24,15 @@ local typenames = {
 }
 
 function offsets.floor (x,y,z)
-  return -32*x-32*z, -32*y-32*z, 32*z, 0
+  return -32*x+32*z, -32*y+32*z, 32*z, 0
 end
 
 function offsets.leftwall (x,y,z)
-  return -32*x+32*y, 32*y, -32*z-32*y, 0
+  return -32*x+32*y, 32*y, -32*z+32*y, 0
 end
 
 function offsets.rightwall (x,y,z)
-  return 32*x, -32*y+32*x, -32*z-32*x, 0
+  return 32*x, -32*y+32*x, -32*z+32*x, 0
 end
 
 function layer:add_struct (struct_type, origin, pos, size, img)

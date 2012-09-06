@@ -7,24 +7,24 @@ local gsub    = string.gsub
 module "struct" do
   
   tform = {
-    { 0.25,  -0.25,   0.0, 0.0},
-    { 0.5,    0.5,    0.0, 0.0},
+    {-0.25,   0.25,   0.0, 0.0},
+    {-0.5,   -0.5,    0.0, 0.0},
     { 0.0,    0.0,    0.5, 0.0},
-    {-250.0, -50.0,   0.0, 1.0}
+    { 250.0,  50.0,   0.0, 1.0}
   }
   
   left_tform = {
-    { 0.5,    0.0, -0.25,   0.0},
+    {-0.5,    0.0, -0.25,   0.0},
     { 0.0,    0.0,  0.5,    0.0},
     { 0.0,    1.0,  0.0,    0.0},
-    {-200.0,  0.0, -50.0,   1.0}
+    { 200.0,  0.0, -50.0,   1.0}
   }
   
   right_tform = {
-    { 0.0, -0.5,    0.25,   0.0},
+    { 0.0,  0.5,    0.25,   0.0},
     { 0.0,  0.0,    0.5,    0.0},
     { 1.0,  0.0,    0.0,    0.0},
-    { 0.0,  200.0, -250.0,  1.0}
+    { 0.0, -200.0, -250.0,  1.0}
   }
   
   local function mul3 (mat, vec)
@@ -109,7 +109,7 @@ module "struct" do
       struct_effect:send("img"..id, img)
       id = id + 1
     end
-    struct_effect:send("light_pos", {0,0,10,1})
+    struct_effect:send("light_pos", {0,0,0,1})
     struct_effect:send("offset", {0,0,0,0})
     return struct_effect
   end
@@ -148,7 +148,7 @@ module "struct" do
   end
 
   local function to_screen(x,y,z)
-    return 400+64*x-64*y, 300-32*x-32*y-64*z
+    return 400-64*x+64*y, 300+32*x+32*y-64*z
   end
   
   function draw_floor (effect, pos, size)

@@ -11,12 +11,12 @@ function love.load ()
     love.graphics.newImage "door_0124_bottom.png",
     love.graphics.newImage "door_0124_top.png"
   }
-  someplace:add_floor({0,0,0}, {-3,-1,0}, {6,1}, floor)
+  someplace:add_floor({0,0,0}, {-3,0,0}, {6,1}, floor)
   someplace:add_leftwall({0,0,0}, {-3,0,0}, {6,1})
-  someplace:add_floor({0,0,1}, {-3,0,0}, {6,3}, floor)
-  someplace:add_leftwall({0,-1,0}, {-3,0,-2}, {6,2})
-  someplace:add_rightwall({0,0,0}, {0,-1,0}, {1,1}, door[1])
-  someplace:add_rightwall({0,0,0}, {0,-1,1}, {1,1}, door[2])
+  someplace:add_floor({0,0,1}, {-3,-3,0}, {6,3}, floor)
+  someplace:add_leftwall({0,1,0}, {-3,0,-2}, {6,2})
+  someplace:add_rightwall({0,0,0}, {0,0,0}, {1,1}, door[1])
+  someplace:add_rightwall({0,0,0}, {0,0,1}, {1,1}, door[2])
 end
 
 local t = 0
@@ -31,7 +31,9 @@ end
 
 function love.draw ()
   love.graphics.setColor(150, 150, 150, 255)
-  --love.graphics.setPixelEffect(effects[5])
+  --love.graphics.setPixelEffect(someplace.floors[1].effect)
+  --love.graphics.setPixelEffect(someplace.lwalls[1].effect)
+  --love.graphics.setPixelEffect(someplace.rwalls[1].effect)
   --love.graphics.rectangle("fill", 0, 0, 800, 600)
   someplace:draw(love.graphics)
   love.graphics.setPixelEffect()
