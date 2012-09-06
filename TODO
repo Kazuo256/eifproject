@@ -4,6 +4,7 @@
   -> Scrolling
 
 -> Utility
+  -> Divide structs in isospace by layers
   -> Make room from height matrix
   -> Load room from files
   -> Custom textures
