@@ -2,6 +2,7 @@
 require "iso.layer"
 local struct  = require "struct"
 
+local layer = iso.layer
 local floor, door
 local someplace = layer:new{}
 

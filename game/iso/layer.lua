@@ -1,17 +1,23 @@
 
-require "lux.object"
-require "lux.table"
+local unpack  = unpack
+local pairs   = pairs
+local object  = require "lux.object"
+local array   = require "lux.table"
 
 require "struct"
 
-layer = lux.object.new {
+local struct = struct
+
+module "iso"
+
+layer = object.new {
 
 }
 
 layer.__init = {
-  floors = lux.table:new{},
-  lwalls = lux.table:new{},
-  rwalls = lux.table:new{},
+  floors = array:new{},
+  lwalls = array:new{},
+  rwalls = array:new{},
   light_pos = {0,0,0}
 }
 
@@ -39,7 +45,7 @@ function layer:add_struct (struct_type, origin, pos, size, img)
   local struct = {
     effect = struct["new_"..struct_type](img),
     pos = {origin[1]+pos[1], origin[2]+pos[2], origin[3]+pos[3]},
-    size = lux.object.clone(size)
+    size = object.clone(size)
   }
   struct.effect:send("offset", {offsets[struct_type](unpack(origin))})
   self[typenames[struct_type]]:insert(struct)
