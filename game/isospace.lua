@@ -4,11 +4,11 @@ require "lux.table"
 
 require "struct"
 
-room = lux.object.new {
+isospace = lux.object.new {
 
 }
 
-room.__init = {
+isospace.__init = {
   floors = lux.table:new{},
   lwalls = lux.table:new{},
   rwalls = lux.table:new{},
@@ -35,7 +35,7 @@ function offsets.rightwall (x,y,z)
   return 32*x, -32*y+32*x, -32*z-32*x, 0
 end
 
-function room:add_struct (struct_type, origin, pos, size, img)
+function isospace:add_struct (struct_type, origin, pos, size, img)
   local struct = {
     effect = struct["new_"..struct_type](img),
     pos = {origin[1]+pos[1], origin[2]+pos[2], origin[3]+pos[3]},
@@ -45,19 +45,19 @@ function room:add_struct (struct_type, origin, pos, size, img)
   self[typenames[struct_type]]:insert(struct)
 end
 
-function room:add_floor (pos, origin, size, img)
+function isospace:add_floor (pos, origin, size, img)
   self:add_struct("floor", pos, origin, size, img)
 end
 
-function room:add_leftwall (pos, origin, size, img)
+function isospace:add_leftwall (pos, origin, size, img)
   self:add_struct("leftwall", pos, origin, size, img)
 end
 
-function room:add_rightwall (pos, origin, size, img)
+function isospace:add_rightwall (pos, origin, size, img)
   self:add_struct("rightwall", pos, origin, size, img)
 end
 
-function room:set_light_pos(pos)
+function isospace:set_light_pos(pos)
   for _,name in pairs (typenames) do
     for _,obj in pairs (self[name]) do
       obj.effect:send("light_pos", pos)
@@ -65,7 +65,7 @@ function room:set_light_pos(pos)
   end
 end
 
-function room:draw (graphics)
+function isospace:draw (graphics)
   for struct_type,name in pairs (typenames) do
     for _,obj in pairs (self[name]) do
       struct["draw_"..struct_type](obj.effect, obj.pos, obj.size)

@@ -1,10 +1,10 @@
 
-require "room"
+require "isospace"
 local struct  = require "struct"
 
 local floor, door
 local effects = {}
-local someplace = room:new{}
+local someplace = isospace:new{}
 
 function love.load ()
   floor = love.graphics.newImage "tiles_plain_3.png"
