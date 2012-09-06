@@ -1,9 +1,9 @@
 
-require "isospace"
+require "layer"
 local struct  = require "struct"
 
 local floor, door
-local someplace = isospace:new{}
+local someplace = layer:new{}
 
 function love.load ()
   floor = love.graphics.newImage "tiles_plain_3.png"
