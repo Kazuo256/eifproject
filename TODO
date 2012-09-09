@@ -2,14 +2,25 @@
 -> UI
   -> Mouse isometric cursor
   -> Scrolling
+  -> Space loader
+  -> Space saver
+  -> Editor
+    -> Space editor
+      -> Space grid
+      -> Layer selector
+    -> Layer editor
+      -> Plane selector
+    -> Plane editor
 
 -> Utility
-  -> Divide structs in isospace by layers
-  -> Make room from height matrix
+  -> Divide structs in isospace by layers // OK
+  -> Make room from height matrix         // Dropped
   -> Load room from files
+  -> Save room to files
   -> Custom textures
 
 -> Features
   -> Room global offset
+  -> 3D Sprites
   -> Multiple rooms
 
