@@ -1,6 +1,6 @@
 
 function love.conf(t)
-  t.title = "Experimental Isometric Framwork"
+  t.title = "EIF v0.1.0"
   t.author = "V-Project"
   t.url = "https://github.com/Kazuo256/eifproject"
   t.identity = nil            -- The name of the save directory (string)
