@@ -1,0 +1,24 @@
+
+================================================================================
+:::: Experimental Isometric Framework Project by V-Project :::::::::::::::::::::
+================================================================================
+
+Project temporarily hosted by Kazuo256's GitHub account.
+
+This document is still a stub.
+
+I. Description:
+
+    Experimental Isometric Framework (EIF) is a game framework project using the
+  LÖVE2D game engine. Its purpose is to offer a light-weight but powerful
+  alternative to both 3D engines and 2D sprite-based implementations of
+  isometric game experience. It does use an intrinsically 2D only rendering
+  system (that of LÖVE2D), but through the use and abuse of fragment shaders it
+  is intended to surpass the boundaries of the 2D realm, at least graphically.
+
+II. History:
+
+    As of now, the project is still in its initial, draft-like stages. Nothing
+  really significant has been done, and there are no official release yet.
+
+
