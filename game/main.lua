@@ -22,7 +22,7 @@ function love.load ()
   layer2:add_rightwall(0, {0,0,0}, {1,1}, door[1])
   layer2:add_rightwall(0, {0,0,1}, {1,1}, door[2])
   someplace:add_layer({left=-128,right=128,bottom=-128,top=128},layer1)
-  someplace:add_layer({left=0,right=128,bottom=0,top=128},layer2)
+  someplace:add_layer({left=0,right=128,bottom=-128,top=128},layer2)
 end
 
 local t = 0
