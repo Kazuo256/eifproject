@@ -66,6 +66,7 @@ module "struct" do
       );
     }
   ]]
+
   local texture_shader = [[
     // Light info
     extern vec4   light_pos;
@@ -91,10 +92,6 @@ module "struct" do
       );
     }
   ]]
-  
-  --local effect1, effect2
-  
-  --local floor
 
   local id = 0
   local function new_struct (transform, img, dir)
