@@ -35,10 +35,9 @@ module "iso" do
 
   function space:draw ()
     for _,layer in ipairs(self.layers) do
-      if not inside(self.light_pos, layer.bound) then
-        break
+      if inside(self.light_pos, layer.bound) then
+        layer.layer:draw()
       end
-      layer.layer:draw()
     end
   end
 
