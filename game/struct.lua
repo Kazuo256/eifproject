@@ -122,6 +122,8 @@ module "struct" do
     )
   end
 
+  new_bottom = new_floor
+
   function new_leftwall (img)
     return new_struct(
       left_tform,
@@ -133,6 +135,8 @@ module "struct" do
     )
   end
 
+  new_left = new_leftwall
+
   function new_rightwall (img)
     return new_struct(
       right_tform,
@@ -143,6 +147,8 @@ module "struct" do
        {0,0,0,1}} 
     )
   end
+
+  new_right = new_rightwall
 
   local function to_screen(x,y,z)
     return 400-64*x+64*y, 300+32*x+32*y-64*z
@@ -157,6 +163,8 @@ module "struct" do
     love.graphics.setPixelEffect(effect)
     love.graphics.quad("fill",unpack(args))
   end
+
+  draw_bottom = draw_floor
   
   function draw_leftwall (effect, pos, size)
     local args = {}
@@ -167,6 +175,8 @@ module "struct" do
     love.graphics.setPixelEffect(effect)
     love.graphics.quad("fill",unpack(args))
   end
+
+  draw_left = draw_leftwall
   
   function draw_rightwall (effect, pos, size)
     local args = {}
@@ -177,6 +187,8 @@ module "struct" do
     love.graphics.setPixelEffect(effect)
     love.graphics.quad("fill",unpack(args))
   end
+
+  draw_right = draw_rightwall
 
 end
 
