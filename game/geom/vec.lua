@@ -8,6 +8,7 @@ local object        = require "lux.object"
 module "geom" do
 
   vec = object.new {
+    __type = "vector",
     -- Vector coordinates.
     [1] = 0,
     [2] = 0,
@@ -18,6 +19,15 @@ module "geom" do
   point = vec:new {
     [4] = 1
   }
+
+  function vec.axis (i)
+    return vec:new {
+      i == 1 and 1 or 0,
+      i == 2 and 1 or 0,
+      i == 3 and 1 or 0,
+      i == 4 and 1 or 0
+    }
+  end
   
   function vec:__index (k)
     if k == "x" then return self[1] end
