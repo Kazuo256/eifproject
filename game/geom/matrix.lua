@@ -1,8 +1,6 @@
 
-local rawset        = rawset
-local rawget        = rawget
-local getmetatable  = getmetatable
 local type          = type
+local tostring      = tostring
 local object        = require "lux.object"
 
 require "geom.vec"
@@ -26,6 +24,13 @@ module "geom" do
         self[i] = vec.axis(i)
       end
     end
+  end
+  
+  function matrix:__tostring ()
+    return  "("..tostring(self[1]).."\n"..
+            " "..tostring(self[2]).."\n"..
+            " "..tostring(self[3]).."\n"..
+            " "..tostring(self[4])..")"
   end
 
   local function mul_scalar (a, m)

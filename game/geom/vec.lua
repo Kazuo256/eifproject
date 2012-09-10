@@ -28,6 +28,12 @@ module "geom" do
       i == 4 and 1 or 0
     }
   end
+
+  function vec:__tostring ()
+    return "("..self[1]..","..self[2]..","..self[3]..","..self[4]..")"
+  end
+
+  point.__tostring = vec.__tostring
   
   function vec:__index (k)
     if k == "x" then return self[1] end
