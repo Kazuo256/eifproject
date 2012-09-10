@@ -13,9 +13,13 @@ module "iso" do
 
   function space:__init ()
     self.light_pos = self.light_pos or {0,0,0}
-    self.layers = array:new {}
-    for i = 1, self.num_layers do
-      self.layers:insert(layer:new {})
+    if not self.layers then
+      self.layers = array:new {}
+      for i = 1, self.num_layers do
+        self.layers:insert(layer:new {})
+      end
+    else
+      self.num_layers = #self.layers
     end
   end
 

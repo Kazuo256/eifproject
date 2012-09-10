@@ -1,26 +1,14 @@
 
-require "iso.layer"
-require "iso.space"
 local struct  = require "struct"
-local space = iso.space
-local layer = iso.layer
 
-local floor, door
-local someplace = space:new { num_layers = 2 }
+local function dofile (path)
+  return love.filesystem.load(path) ()
+end
+
+local someplace
 
 function love.load ()
-  floor = love.graphics.newImage "tiles_plain_3.png"
-  door = {
-    love.graphics.newImage "door_0124_bottom.png",
-    love.graphics.newImage "door_0124_top.png"
-  }
-  someplace:set_bound(2, {left=0,right=128,bottom=-128,top=128})
-  someplace:add_floor(1, 0, {-3,0}, {6,1}, floor)
-  someplace:add_leftwall(1, 0, {-3,0}, {6,1})
-  someplace:add_floor(1, 1, {-3,-3}, {6,3}, floor)
-  someplace:add_leftwall(1, 1, {-3,-2}, {6,2})
-  someplace:add_rightwall(2, 0, {0,0}, {1,1}, door[1])
-  someplace:add_rightwall(2, 0, {0,1}, {1,1}, door[2])
+  someplace = dofile "someplace.lua"
 end
 
 local t = 0
