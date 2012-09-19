@@ -3,6 +3,7 @@ local rawset        = rawset
 local rawget        = rawget
 local getmetatable  = getmetatable
 local type          = type
+local unpack        = unpack
 local object        = require "lux.object"
 
 module "geom" do
@@ -113,6 +114,10 @@ module "geom" do
     self[2] = self[2] - v[2]
     self[3] = self[3] - v[3]
     self[4] = self[4] - v[4]
+  end
+
+  function vec:unpack (n)
+    return unpack(self, n)
   end
   
 end
