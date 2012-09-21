@@ -1,10 +1,12 @@
 
 local object    = require "lux.object"
 local rawstruct = require "struct"
+require "geom.vec"
 
 local error     = error
 local print     = print
 local unpack    = unpack
+local vec       = geom.vec
 
 module "iso" do
 
@@ -16,15 +18,15 @@ module "iso" do
   }
 
   local offset_direction = {
-    bottom  = function (d) return {0,0,d} end,
-    left    = function (d) return {0,d,0} end,
-    right   = function (d) return {d,0,0} end
+    bottom  = function (d) return vec:new{0,0,d} end,
+    left    = function (d) return vec:new{0,d,0} end,
+    right   = function (d) return vec:new{d,0,0} end
   }
 
   local from_plane_coord = {
-    bottom  = function (x,y) return {x,y,0} end,
-    left    = function (x,y) return {x,0,y} end,
-    right   = function (x,y) return {0,x,y} end
+    bottom  = function (x,y) return vec:new{x,y,0} end,
+    left    = function (x,y) return vec:new{x,0,y} end,
+    right   = function (x,y) return vec:new{0,x,y} end
   }
 
   local offset_adjust = {}
