@@ -15,13 +15,13 @@ module "iso" do
     texture = nil
   }
 
-  local offset_dir = {
+  local offset_direction = {
     bottom  = function (d) return {0,0,d} end,
     left    = function (d) return {0,d,0} end,
     right   = function (d) return {d,0,0} end
   }
 
-  local pos_dir = {
+  local from_plane_coord = {
     bottom  = function (x,y) return {x,y,0} end,
     left    = function (x,y) return {x,0,y} end,
     right   = function (x,y) return {0,x,y} end
@@ -42,8 +42,8 @@ module "iso" do
   end
 
   function struct:__init ()
-    local offset = offset_dir[self.type] (self.pos[3])
-    local pos = pos_dir[self.type] (self.pos[1], self.pos[2])
+    local offset = offset_direction[self.type] (self.pos[3])
+    local pos = from_plane_coord[self.type] (self.pos[1], self.pos[2])
     self.shader = rawstruct["new_"..self.type](self.texture)
     self.pos = {
       offset[1] + pos[1],
