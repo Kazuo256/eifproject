@@ -2,7 +2,7 @@
 -> UI
   -> Mouse isometric cursor
   -> Scrolling
-  -> Space loader
+  -> Space loader                         // OK
   -> Space saver
   -> Editor
     -> Space editor
@@ -15,9 +15,9 @@
 -> Utility
   -> Divide structs in isospace by layers // OK
   -> Make room from height matrix         // Dropped
-  -> Load room from files
+  -> Load room from files                 // OK
   -> Save room to files
-  -> Custom textures
+  -> Custom textures                      // OK
 
 -> Features
   -> Room global offset
