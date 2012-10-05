@@ -33,6 +33,15 @@ module "geom" do
             " "..tostring(self[4])..")"
   end
 
+  function matrix:transpose ()
+    return matrix:new {
+      { self[1][1], self[2][1], self[3][1], self[4][1] },
+      { self[1][2], self[2][2], self[3][2], self[4][2] },
+      { self[1][3], self[2][3], self[3][3], self[4][3] },
+      { self[1][4], self[2][4], self[3][4], self[4][4] },
+    }
+  end
+
   local function mul_scalar (a, m)
     return matrix:new {
       a*m[1],

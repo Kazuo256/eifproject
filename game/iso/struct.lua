@@ -2,16 +2,19 @@
 local object    = require "lux.object"
 local rawstruct = require "struct"
 require "geom.vec"
+require "iso.plane"
 
 local error     = error
 local print     = print
 local unpack    = unpack
 local vec       = geom.vec
+local plane     = iso.plane
 
 module "iso" do
 
   struct = object.new {
     type = "bottom",
+    plane = nil,
     pos = {0,0,0},
     size = {1,1},
     texture = nil
@@ -44,8 +47,11 @@ module "iso" do
   end
 
   function struct:__init ()
-    local offset = offset_direction[self.type] (self.pos[3])
-    local pos = from_plane_coord[self.type] (self.pos[1], self.pos[2])
+    self.plane = plane[self.type]()
+    local offset = self.pos[3]*self.plane:normal()
+    --local offset = offset_direction[self.type] (self.pos[3])
+    local pos = self.plane:to_global_coord(self.pos[1], self.pos[2])
+    --local pos = from_plane_coord[self.type] (self.pos[1], self.pos[2])
     self.shader = rawstruct["new_"..self.type](self.texture)
     self.pos = {
       offset[1] + pos[1],
