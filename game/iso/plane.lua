@@ -1,8 +1,10 @@
 
 local object = require "lux.object"
+require "geom.vec"
 require "geom.matrix"
 
-local matrix = geom.matrix
+local matrix  = geom.matrix
+local vec     = geom.vec
 
 module "iso" do
 
@@ -19,7 +21,8 @@ module "iso" do
     return x*self.vec_base[1] + y*self.vec_base[2]
   end
 
-  function plane:adjust_normal_offset (x, y, z)
+  function plane:adjust_normal_offset (offset)
+    local x,y,z = (offset*self.vec_base):unpack()
     return 32*vec:new{z,z,z} - 32*x*self.vec_base[1] - 32*y*self.vec_base[2]
   end
 

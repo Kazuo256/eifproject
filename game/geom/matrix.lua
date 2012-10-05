@@ -58,6 +58,8 @@ module "geom" do
       return mul_scalar(rhs, lhs)
     elseif rhs.__type == "vector" then
       return lhs[1]*rhs[1] + lhs[2]*rhs[2] + lhs[3]*rhs[3] + lhs[4]*rhs[4]
+    elseif lhs.__type == "vector" then
+      return vec:new {lhs*rhs[1], lhs*rhs[2], lhs*rhs[3], lhs*rhs[4]}
     else -- assume both are matrices
       return matrix:new {
         lhs*rhs[1],
